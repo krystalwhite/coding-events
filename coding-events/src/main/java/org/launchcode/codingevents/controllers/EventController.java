@@ -24,7 +24,7 @@ public class EventController {
     }
 
 //    static page lives at /events/create
-    @GetMapping("create")
+    @GetMapping("/create")
     public String renderCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
         return "events/create";
