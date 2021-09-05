@@ -10,33 +10,36 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
-@RequestMapping("events")
-public class EventController {
+    @Controller
+    @RequestMapping("events")
+    public class EventController {
 
-    private static List<String> events = new ArrayList<>();
+        private static List<String> events = new ArrayList<>();
 
-    @GetMapping
-    public String displayAllEvents(Model model) {
-        model.addAttribute("title", "All Events");
-        model.addAttribute("events", events);
-        return "events/index";
-    }
+        @GetMapping
+        public String displayAllEvents(Model model) {
+            model.addAttribute("title", "All Events");
+            model.addAttribute("events", events);
+            return "events/index";
+        }
 
-//    static page lives at /events/create
-    @GetMapping("/create")
-    public String renderCreateEventForm(Model model) {
-        model.addAttribute("title", "Create Event");
-        return "events/create";
-    }
+//        static page lives at /events/create
+        @GetMapping("create")
+        public String displayCreateEventForm(Model model) {
+            model.addAttribute("title", "Create Event");
+            return "events/create";
+        }
 
-//    lives at /events/create
+        //    lives at /events/create
 //    the "redirect:" without anything additional sends back to root /create page
 //    could also use "redirect:/create"
-    @PostMapping("create")
-    public String processCreateEventForm(@RequestParam String eventName) {
-        events.add(eventName);
-        return "redirect:";
-    }
+        @PostMapping("create")
+        public String processCreateEventForm(@RequestParam String eventName) {
+            events.add(eventName);
+            return "redirect:";
+        }
+
+
+
 
 }
