@@ -8,16 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
     @Controller
     @RequestMapping("events")
     public class EventController {
 
-        private static List<String> events = new ArrayList<>();
+        private HashMap<String, String> events = new HashMap<>();
 
         @GetMapping
         public String displayAllEvents(Model model) {
+            events.put("Event 1", "party in September");
+            events.put("Event 2", "party in December");
+            events.put("Event 3", "party in March");
             model.addAttribute("title", "All Events");
             model.addAttribute("events", events);
             return "events/index";
@@ -34,8 +38,8 @@ import java.util.List;
 //    the "redirect:" without anything additional sends back to root /create page
 //    could also use "redirect:/create"
         @PostMapping("create")
-        public String processCreateEventForm(@RequestParam String eventName) {
-            events.add(eventName);
+        public String processCreateEventForm(@RequestParam String eventName, @RequestParam String eventDescription) {
+            events.put(eventName, eventDescription);
             return "redirect:";
         }
 
