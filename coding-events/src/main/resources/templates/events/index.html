@@ -6,11 +6,19 @@
 
 <header th:replace="fragments :: header"></header>
 
-<ul>
-    <th:block th:each="event : ${events}">
-        <li th:text="${event}"></li>
-    </th:block>
-</ul>
+<table class="table table-striped">
+    <tr>
+        <th>Event Name</th>
+        <th>Event Description</th>
+    </tr>
+
+        <th:block th:each="event : ${events}">
+            <tr>
+                <td th:text="${event.getKey()}"></td>
+                <td th:text="${event.getValue()}"></td>
+            </tr>
+        </th:block>
+</table>
 
 </body>
 </html>
