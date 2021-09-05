@@ -19,9 +19,9 @@ import java.util.List;
 
         @GetMapping
         public String displayAllEvents(Model model) {
-            events.put("Event 1", "party in September");
-            events.put("Event 2", "party in December");
-            events.put("Event 3", "party in March");
+            events.put("Code with Pride", "Code with Pride is an affinity group that aims to help underrepresented groups succeed in tech and is working for inclusive change in the St. Louis tech community and beyond.");
+            events.put("Women Who Code", "Women Who Code inspires women to excel in technology careers.");
+            events.put("Strange Loop", "Strange Loop is a conference for software developers covering programming languages, databases, creativity, and more.");
             model.addAttribute("title", "All Events");
             model.addAttribute("events", events);
             return "events/index";

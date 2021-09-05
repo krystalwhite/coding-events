@@ -10,12 +10,14 @@
     <tr>
         <th>Event Name</th>
         <th>Event Description</th>
+        <th>Address</th>
     </tr>
 
         <th:block th:each="event : ${events}">
             <tr>
                 <td th:text="${event.getKey()}"></td>
                 <td th:text="${event.getValue()}"></td>
+                <td>1600 Pennsylvania Avenue</td>
             </tr>
         </th:block>
 </table>
