@@ -18,13 +18,15 @@ public class EventController {
 
     @GetMapping
     public String displayAllEvents(Model model) {
+        model.addAttribute("title", "All Events");
         model.addAttribute("events", events);
         return "events/index";
     }
 
 //    static page lives at /events/create
     @GetMapping("create")
-    public String renderCreateEventForm() {
+    public String renderCreateEventForm(Model model) {
+        model.addAttribute("title", "Create Event");
         return "events/create";
     }
 
@@ -32,7 +34,7 @@ public class EventController {
 //    the "redirect:" without anything additional sends back to root /create page
 //    could also use "redirect:/create"
     @PostMapping("create")
-    public String createEvent(@RequestParam String eventName) {
+    public String processCreateEventForm(@RequestParam String eventName) {
         events.add(eventName);
         return "redirect:";
     }
