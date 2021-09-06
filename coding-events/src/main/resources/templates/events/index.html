@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tr th:each="event:${events}">
-        <td th:text="${event.name}"></td>
+        <td th:text="${event.name}"></td> //thymeleaf will pull the getter here, without needing to write .getName()
     </tr>
 </table>
 
