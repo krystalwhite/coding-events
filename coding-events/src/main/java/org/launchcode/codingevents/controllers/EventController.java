@@ -47,10 +47,12 @@ import java.util.List;
             return "events/delete";
         }
 
-        @PostMapping("delete")
-        public String processDeleteEventsForm(@RequestParam int[] eventIds) {
-            for (int id : eventIds) {
-                EventData.remove(id);
+        @PostMapping("delete") //required=false means that the method can run without an ID
+        public String processDeleteEventsForm(@RequestParam(required = false) int[] eventIds) {
+            if (eventIds != null) {
+                for (int id : eventIds) {
+                    EventData.remove(id);
+                }
             }
             return "redirect:";  //sends us back to the index
         }
