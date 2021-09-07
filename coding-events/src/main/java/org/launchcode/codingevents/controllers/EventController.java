@@ -39,4 +39,20 @@ import java.util.List;
             return "redirect:";
         }
 
+//        displays the form, returns a form
+        @GetMapping("delete")
+        public String displayDeleteEventForm(Model model) {
+            model.addAttribute("title", "Delete Events");
+            model.addAttribute("events", EventData.getAll());
+            return "events/delete";
+        }
+
+        @PostMapping("delete")
+        public String processDeleteEventsForm(@RequestParam int[] eventIds) {
+            for (int id : eventIds) {
+                EventData.remove(id);
+            }
+            return "redirect:";  //sends us back to the index
+        }
+
 }
