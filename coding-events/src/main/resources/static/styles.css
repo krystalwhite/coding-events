@@ -2,3 +2,7 @@ body {
 background-color: powderblue;
 }
 
+td {
+    text-align: center
+}
+
