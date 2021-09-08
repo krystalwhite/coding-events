@@ -17,7 +17,7 @@
             <tr>
                 <td th:text="${event.getKey()}"></td>
                 <td th:text="${event.getValue()}"></td>
-                <td>1600 Pennsylvania Avenue</td>
+                <td th:replace="fragments :: address"></td>
             </tr>
         </th:block>
 </table>
