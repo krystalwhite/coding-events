@@ -56,15 +56,15 @@ import java.util.List;
 
         @GetMapping("edit/{eventId}")
         public String displayEditForm(Model model, @PathVariable int eventId) {
-
-            model.addAttribute("eventId", eventId);
+            Event eventToEdit = EventData.getById(eventId);
+            model.addAttribute("event", eventToEdit);
             return "events/edit";
 
         }
 
-        @PostMapping("edit")
-        public String processEditForm(int eventId, String name, String description) {
-
-        }
+//        @PostMapping("edit")
+//        public String processEditForm(int eventId, String name, String description) {
+//
+//        }
 
 }
