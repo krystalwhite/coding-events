@@ -63,9 +63,12 @@ import java.util.List;
             return "events/edit";
         }
 
-//        @PostMapping("edit")
-//        public String processEditForm(int eventId, String name, String description) {
-//
-//        }
+        @PostMapping("edit")
+        public String processEditForm(int eventId, String name, String description) {
+            Event eventToEdit = EventData.getById(eventId);
+            eventToEdit.setName(name);
+            eventToEdit.setDescription(description);
+            return "redirect:"; //sends back to the index
+        }
 
 }
