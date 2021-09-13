@@ -57,9 +57,10 @@ import java.util.List;
         @GetMapping("edit/{eventId}")
         public String displayEditForm(Model model, @PathVariable int eventId) {
             Event eventToEdit = EventData.getById(eventId);
+            String title = "Edit Event " + eventToEdit.getName() + " (id=" + eventToEdit.getId() +")";
             model.addAttribute("event", eventToEdit);
+            model.addAttribute("title", title);
             return "events/edit";
-
         }
 
 //        @PostMapping("edit")
