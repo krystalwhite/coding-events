@@ -63,13 +63,26 @@ import java.util.List;
             return "events/edit";
         }
 
+//        this pathway works but takes in each
+//        @PostMapping("edit")
+//        public String processEditForm(int eventId, String name, String description) {
+//            Event eventToEdit = EventData.getById(eventId);
+//            eventToEdit.setName(name);
+//            eventToEdit.setDescription(description);
+//            EventData.add(eventToEdit);
+//            return "redirect:"; //sends back to the index
+//        }
+
+
+//        doing some modelbinding here
         @PostMapping("edit")
-        public String processEditForm(int eventId, String name, String description) {
-            Event eventToEdit = EventData.getById(eventId);
-            eventToEdit.setName(name);
-            eventToEdit.setDescription(description);
-            EventData.add(eventToEdit);
+        public String processEditForm(int eventId, @ModelAttribute Event event) {
+            Event currentEvent = EventData.getById(eventId);
+            currentEvent.setName(event.getName());
+            currentEvent.setDescription(event.getDescription());
+            EventData.add(currentEvent);
             return "redirect:"; //sends back to the index
         }
+
 
 }

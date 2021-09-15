@@ -6,6 +6,10 @@
 <header th:replace="fragments :: header"></header>
 
 <form method="post" th:action="@{/events/edit}">
+<!--  the th:action tag is needed because of the PathVariable; the getmapping
+goes to one URL and the postMapping to another, so we're putting in the actual address
+we want instead
+-->
   <div class="form-group" >
     <input type="hidden" th:value="${event.id}" name="eventId" />
     <label>Name
