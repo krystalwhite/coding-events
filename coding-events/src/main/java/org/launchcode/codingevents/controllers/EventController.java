@@ -68,6 +68,7 @@ import java.util.List;
             Event eventToEdit = EventData.getById(eventId);
             eventToEdit.setName(name);
             eventToEdit.setDescription(description);
+            EventData.add(eventToEdit);
             return "redirect:"; //sends back to the index
         }
 
