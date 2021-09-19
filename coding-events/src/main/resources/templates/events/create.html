@@ -40,6 +40,12 @@
     </label>
   </div>
 
+  <div class="form-group">
+    <label>Number of Attendees
+      <input th:field="${event.attendeeNumber}" class="form-control">
+    </label>
+    <p class="error" th:errors="${event.attendeeNumber}"></p>
+  </div>
 
   <div class="form-group">
       <input type="submit" value="Create" class="btn btn-success">
