@@ -20,26 +20,35 @@ public class Event {
     private String contactEmail;
 
     @NotBlank(message = "Location is required.")
-    @NotNull(message = "Location is required.")
     private String location;
 
     private boolean mustRegister;
 
-    @Positive(message = "Event must have participants to exist.")
+    @Positive(message = "Event must have participants.")
     private int attendeeNumber;
+
+    private boolean masksRequired = true;
+
+    @NotBlank(message = "Response is required. Please enter from these three options: virtual, in person, or hybrid.")
+    private String virtualOrInPerson;
 
     public Event(String name,
                  String description,
                  String contactEmail,
                  String location,
                  boolean mustRegister,
-                 int attendeeNumber) {
+                 int attendeeNumber,
+                 String virtualOrInPerson,
+                 boolean masksRequired
+    ) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
         this.location = location;
         this.mustRegister = mustRegister;
         this.attendeeNumber = attendeeNumber;
+        this.virtualOrInPerson = virtualOrInPerson;
+        this.masksRequired = masksRequired;
         this.id = nextId;
         nextId++;
     }
@@ -96,6 +105,22 @@ public class Event {
 
     public void setAttendeeNumber(int attendeeNumber) {
         this.attendeeNumber = attendeeNumber;
+    }
+
+    public String getVirtualOrInPerson() {
+        return virtualOrInPerson;
+    }
+
+    public void setVirtualOrInPerson(String virtualOrInPerson) {
+        this.virtualOrInPerson = virtualOrInPerson;
+    }
+
+    public boolean isMasksRequired() {
+        return masksRequired;
+    }
+
+    public void setMasksRequired(boolean masksRequired) {
+        this.masksRequired = masksRequired;
     }
 
     @Override

@@ -35,9 +35,22 @@
   </div>
 
   <div class="form-group">
-    <label>Registration Required
+    <label>Registration Required?
       <input type="checkbox" checked="checked" class="form-control">
     </label>
+  </div>
+
+  <div class="form-group">
+    <label>Masks Required?
+      <input type="checkbox" checked="checked" class="form-control">
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>Virtual or In Person
+      <input th:field="${event.virtualOrInPerson}" class="form-control">
+    </label>
+    <p class="error" th:errors="${event.virtualOrInPerson}"></p>
   </div>
 
   <div class="form-group">
