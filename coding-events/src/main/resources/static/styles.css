@@ -1,7 +1,11 @@
 body {
-background-color: powderblue;
+background-color: #32a881;
+}
+
+.nav-link {
+color:white;
 }
 
 .error {
-color:red;
+color:#5d32a8;
 }

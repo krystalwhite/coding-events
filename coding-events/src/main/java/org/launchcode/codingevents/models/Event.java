@@ -1,6 +1,7 @@
 package org.launchcode.codingevents.models;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import java.util.Objects;
@@ -21,10 +22,18 @@ public class Event {
     @Email(message = "Invalid email, try again.")
     private String contactEmail;
 
-    public Event(String name, String description, String contactEmail) {
+    @NotBlank(message = "Location is required.")
+    @NotNull(message = "Location is required.")
+    private String location;
+
+    private boolean mustRegister;
+
+    public Event(String name, String description, String contactEmail, String location, boolean mustRegister) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
+        this.location = location;
+        this.mustRegister = mustRegister;
         this.id = nextId;
         nextId++;
     }
@@ -57,6 +66,14 @@ public class Event {
 
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     @Override
