@@ -41,6 +41,7 @@ public class Event {
                  String virtualOrInPerson,
                  boolean masksRequired
     ) {
+        this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
@@ -49,11 +50,13 @@ public class Event {
         this.attendeeNumber = attendeeNumber;
         this.virtualOrInPerson = virtualOrInPerson;
         this.masksRequired = masksRequired;
+
+    }
+
+    public Event(){
         this.id = nextId;
         nextId++;
     }
-
-    public Event(){}
 
     public String getName() {
         return name;
