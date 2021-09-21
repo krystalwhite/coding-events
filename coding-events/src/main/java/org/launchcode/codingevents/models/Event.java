@@ -22,7 +22,7 @@ public class Event {
     @NotBlank(message = "Location is required.")
     private String location;
 
-    private boolean mustRegister;
+    private boolean mustRegister = true;
 
     @Positive(message = "Event must have participants.")
     private int attendeeNumber;
