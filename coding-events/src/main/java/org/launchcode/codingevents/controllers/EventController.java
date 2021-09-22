@@ -35,7 +35,8 @@ import java.util.List;
 //        the @modelattribute does the model binding of taking all incoming parameters and making an Event object with them
 //        force the checking of validation rules with @Valid
         @PostMapping("create")
-        public String processCreateEventForm(@ModelAttribute @Valid Event newEvent, Errors errors, Model model) {
+        public String processCreateEventForm(@ModelAttribute @Valid Event newEvent,
+                                             Errors errors, Model model) {
             if(errors.hasErrors()) {
                 model.addAttribute("title", "Create Event");
                 model.addAttribute("errorMsg", "Bad data!");
