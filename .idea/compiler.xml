@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="coding-events.coding-events.main~1" target="11" />
-      <module name="coding-events.coding-events.test~1" target="11" />
+      <module name="coding-events.coding-events.main" target="11" />
+      <module name="coding-events.coding-events.test" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
