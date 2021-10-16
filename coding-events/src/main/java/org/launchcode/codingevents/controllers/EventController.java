@@ -104,6 +104,7 @@ import java.util.Optional;
             Event event = result.get();
             model.addAttribute("title", event.getName() + " Details");
             model.addAttribute("event", event);
+            model.addAttribute("tags", event.getTags());
         }
         return "events/detail";
     }
@@ -115,8 +116,9 @@ import java.util.Optional;
         Event event = result.get();
         model.addAttribute("title", "Add Tag to: " + event.getName());
         model.addAttribute("tags", tagRepository.findAll());
-        model.addAttribute("event", event);
-        model.addAttribute("eventTag", new EventTagDTO());
+        EventTagDTO eventTag = new EventTagDTO();
+        eventTag.setEvent(event);
+        model.addAttribute("eventTag", eventTag);
         return "events/add-tag.html";
 
     }
@@ -132,7 +134,7 @@ import java.util.Optional;
                 event.addTag(tag);
                 eventRepository.save(event);
             }
-            return "redirect:detail?eventId=" +event.getId();
+            return "redirect:detail?eventId=" + event.getId();
         }
         return "redirect:add-tag";
 
