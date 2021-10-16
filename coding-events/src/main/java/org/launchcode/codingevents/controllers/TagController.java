@@ -40,6 +40,7 @@ public class TagController {
                                        Errors errors, Model model) {
         if(errors.hasErrors()) {
             model.addAttribute("title", "Create Tag");
+            model.addAttribute(newTag);
             return "tags/create";
         }
         tagRepository.save(newTag);
