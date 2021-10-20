@@ -27,10 +27,12 @@ import java.util.Optional;
 
         @GetMapping
         public String displayEvents(@RequestParam(required = false) Integer categoryId, Model model) {
-            if (categoryId == null) {
+            if (categoryId == null) {  //if no category id, then show all events
                 model.addAttribute("title", "All Events");
                 model.addAttribute("events", eventRepository.findAll());
-            } else {
+            } else { // if I give you a category id, then look in the repo and save it as an optional;
+//                using Optional comes out of CrudRepository, and saving as Optional allows us to use those methods
+//                Optional allows us to findById and, if it doesn't exist, return back NOT an error but instead result=null
                 Optional<EventCategory> result = eventCategoryRepository.findById(categoryId);
                 if (result.isEmpty()) {  //user asked for a category id and that id wasn't in the database
                     model.addAttribute("title", "Invalid Category ID: " + categoryId);
