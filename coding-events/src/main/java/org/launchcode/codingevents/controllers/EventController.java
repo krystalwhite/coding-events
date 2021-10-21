@@ -1,6 +1,7 @@
 package org.launchcode.codingevents.controllers;
 
 import org.launchcode.codingevents.data.EventCategoryRepository;
+import org.launchcode.codingevents.data.EventLocationRepository;
 import org.launchcode.codingevents.data.EventRepository;
 import org.launchcode.codingevents.models.Event;
 import org.launchcode.codingevents.models.EventCategory;
@@ -25,7 +26,11 @@ import java.util.Optional;
         @Autowired
         private EventCategoryRepository eventCategoryRepository;
 
-        @GetMapping
+        @Autowired
+        private EventLocationRepository eventLocationRepository;
+
+
+    @GetMapping
         public String displayEvents(@RequestParam(required = false) Integer categoryId, Model model) {
             if (categoryId == null) {  //if no category id, then show all events
                 model.addAttribute("title", "All Events");

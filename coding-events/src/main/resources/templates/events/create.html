@@ -37,6 +37,18 @@
     </label>
   </div>
 
+  <div class="form-group">
+    <label>Location
+      <select th:field="${event.eventLocation}">
+        <option th:each="eventLocation : ${locations}"
+                th:value="${eventLocation.id}"
+                th:text="${eventLocation.location}">
+        </option>
+      </select>
+      <p class="error" th:errors="${event.eventLocation}"></p>
+    </label>
+  </div>
+
 
   <div class="form-group">
       <input type="submit" value="Create" class="btn btn-success">
