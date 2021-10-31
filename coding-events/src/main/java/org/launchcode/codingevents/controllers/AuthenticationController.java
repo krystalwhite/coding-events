@@ -48,7 +48,6 @@ public class AuthenticationController {
     public String displayRegistrationForm(Model model) {
         model.addAttribute(new RegisterFormDTO());
         model.addAttribute("title", "Register");
-        System.out.print("The site did go to registration.");
         return "register";
     }
 
@@ -129,4 +128,5 @@ public class AuthenticationController {
         request.getSession().invalidate();
         return "redirect:/login";
     }
+
 }
